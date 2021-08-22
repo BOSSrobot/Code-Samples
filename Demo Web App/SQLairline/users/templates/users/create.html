@@ -1,0 +1,16 @@
+{% extends "users/layout.html" %}
+
+{% block body %}
+    <h1>Create an Account</h1>
+    {% if message %}
+        <div style="color: red; font-size: 20px;">{{ message }}</div>
+    {% endif %}
+    <form action="{% url 'create'%}" method = "post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username">
+        <input type="text" name="email" placeholder="Email">
+        <input type="text" name="name" placeholder="Full Name">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Create">
+    </form>
+{% endblock%}
